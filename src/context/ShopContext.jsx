@@ -34,7 +34,7 @@ const ShopContextProvider = (props) => {
     if (token) {
       try {
         await axios.post(
-          "/api/cart/add",
+       backendUrl+"/api/cart/add",
           { itemId, size },
           { headers: { token } }
         );
@@ -158,7 +158,7 @@ const ShopContextProvider = (props) => {
   };
   const getProductData = async () => {
     try {
-      const response = await axios.get("/api/product/list");
+      const response = await axios.get(backendUrl+"/api/product/list");
       // console.log(response)
       if (response.data.success) {
         setProducts(response.data.product);
@@ -173,7 +173,7 @@ const ShopContextProvider = (props) => {
   const getUseCart = async (token) => {
     try {
       const response = await axios.post(
-        "/api/cart/get",
+       backendUrl+ "/api/cart/get",
         {},
         { headers: { token } }
       );

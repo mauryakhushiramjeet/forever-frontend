@@ -6,8 +6,8 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 5173,
-    proxy: {
-      "/api": "https://forever-full-stack-backend-teal.vercel.app",
-    },
+    // proxy: {
+    //   "/api": "https://forever-full-stack-backend-teal.vercel.app",
+    // },
   },
 });

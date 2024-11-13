@@ -5,7 +5,7 @@ import { assets } from "../assets/assets";
 import axios from "axios";
 
 const Orders = () => {
-  const { token, currency } = useContext(ShopContext);
+  const { token, currency ,backendUrl} = useContext(ShopContext);
   const [orderData, setOrderData] = useState([]);
   const loadOrderData = async () => {
     try {
@@ -13,7 +13,7 @@ const Orders = () => {
         return null;
       }
       const response = await axios.post(
-        "/api/order/userorders",
+       backendUrl+ "/api/order/userorders",
         {},
         { headers: { token } }
       );
