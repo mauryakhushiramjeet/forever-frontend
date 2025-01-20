@@ -23,14 +23,15 @@ const BestSeller = () => {
       <div className="text-center text-3xl py-8">
         <Tittle text1={"BEST"} text2={"SELLERS"} />
         <p className="w-3/4 m-auto test-xs sm:text-sm md:text-base text-gray-600">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus ut
-          minima dignissimos, est iste repudiandae nam, quo debitis deleniti
-          magnam eum nobis, tenetur nihil a quasi. Aut ad eligendi et!
+          The Best Seller Products section highlights the most popular and
+          high-demand items, showcasing top-quality products loved by customers.
+          Each product is presented with its image, name, and price, emphasizing
+          its premium status and appeal.
         </p>
       </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 gap-y-6">
-        {bestSeller.length!=0
+        {bestSeller.length != 0
           ? bestSeller.map((item, index) => (
               <ProductItem
                 key={index}
