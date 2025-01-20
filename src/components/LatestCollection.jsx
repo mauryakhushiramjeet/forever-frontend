@@ -37,7 +37,7 @@ const LatestCollection = () => {
             />
           ))
         ) : (
-          <div className="flex gap-2">
+          <div className="overflow-hidden w-[100vw]">
             {arr.map((a) => (
               <Simer />
             ))}

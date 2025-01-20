@@ -179,17 +179,23 @@ const Collection = () => {
         </div>
         {/* map product */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6">
-          {filterProducts.length!=0? filterProducts.map((item, index) => (
-            <ProductItem
-              key={index}
-              name={item.name}
-              price={item.price}
-              id={item._id}
-              img={item.image}
-            />
-          )):arr.map((a)=>(
-            <Simer/>
-          ))}
+          {filterProducts.length != 0 ? (
+            filterProducts.map((item, index) => (
+              <ProductItem
+                key={index}
+                name={item.name}
+                price={item.price}
+                id={item._id}
+                img={item.image}
+              />
+            ))
+          ) : (
+            <div className="overflow-hidden w-[100vw]">
+              {arr.map((a) => (
+                <Simer />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>
