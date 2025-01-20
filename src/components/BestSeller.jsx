@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
 import Tittle from "./Tittle";
 import ProductItem from "./ProductItem";
+import Simer from "./Simer";
 
 const BestSeller = () => {
   const { products } = useContext(ShopContext);
@@ -15,6 +16,8 @@ const BestSeller = () => {
     setBestSeller(bestProduct.slice(0, 5));
     console.log(bestSeller);
   }, [products]);
+  // if (bestSeller.length == 0) return <h1>Ankit Loading...</h1>;
+  const arr = [1, 2, 3, 4, 5];
   return (
     <div className="my-10">
       <div className="text-center text-3xl py-8">
@@ -27,15 +30,17 @@ const BestSeller = () => {
       </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 gap-y-6">
-        {bestSeller.map((item, index) => (
-          <ProductItem
-            key={index}
-            id={item._id}
-            img={item.image}
-            name={item.name}
-            price={item.price}
-          />
-        ))}
+        {bestSeller.length!=0
+          ? bestSeller.map((item, index) => (
+              <ProductItem
+                key={index}
+                id={item._id}
+                img={item.image}
+                name={item.name}
+                price={item.price}
+              />
+            ))
+          : arr.map((a) => <Simer />)}
       </div>
     </div>
   );

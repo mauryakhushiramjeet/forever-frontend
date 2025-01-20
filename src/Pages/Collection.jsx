@@ -3,6 +3,7 @@ import { ShopContext } from "../context/ShopContext";
 import { assets } from "../assets/assets";
 import Tittle from "../components/Tittle";
 import ProductItem from "../components/ProductItem";
+import Simer from "../components/Simer";
 
 const Collection = () => {
   const { products, search, showSearch } = useContext(ShopContext);
@@ -72,6 +73,7 @@ const Collection = () => {
   useEffect(() => {
     sortProduct();
   }, [sortType]);
+  const arr=[1,2,3,4]
   return (
     <div className="flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t">
       {/* Filte Option */}
@@ -177,7 +179,7 @@ const Collection = () => {
         </div>
         {/* map product */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6">
-          {filterProducts.map((item, index) => (
+          {filterProducts.length!=0? filterProducts.map((item, index) => (
             <ProductItem
               key={index}
               name={item.name}
@@ -185,6 +187,8 @@ const Collection = () => {
               id={item._id}
               img={item.image}
             />
+          )):arr.map((a)=>(
+            <Simer/>
           ))}
         </div>
       </div>

@@ -197,6 +197,7 @@ const ShopContextProvider = (props) => {
   });
   useEffect(() => {
     // console.log("Updated products:", products);
+    
   }, [products]);
   const value = {
     products,
