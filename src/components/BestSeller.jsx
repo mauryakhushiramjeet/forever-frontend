@@ -22,7 +22,7 @@ const BestSeller = () => {
     <div className="my-10">
       <div className="text-center text-3xl py-8">
         <Tittle text1={"BEST"} text2={"SELLERS"} />
-        <p className="w-3/4 m-auto test-xs sm:text-sm md:text-base text-gray-600">
+        <p className="w-3/4 m-auto text-xs sm:text-sm md:text-base text-gray-600">
           The Best Seller Products section highlights the most popular and
           high-demand items, showcasing top-quality products loved by customers.
           Each product is presented with its image, name, and price, emphasizing
