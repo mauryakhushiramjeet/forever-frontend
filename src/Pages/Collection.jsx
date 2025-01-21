@@ -190,7 +190,7 @@ const Collection = () => {
               />
             ))
           ) : (
-            <div className="overflow-hidden w-[100vw]">
+            <div className="overflow-hidden w-[100vw] m-auto flex flex-wrap justify-center">
               {arr.map((a) => (
                 <Simer />
               ))}

@@ -42,7 +42,7 @@ const BestSeller = () => {
             />
           ))
         ) : (
-          <div className="overflow-hidden w-[100vw] gap-2 ">
+          <div className="overflow-hidden w-[100vw] gap-2 m-auto flex flex-wrap justify-center ">
             
           {arr.map((a)=>(
             <Simer/>
