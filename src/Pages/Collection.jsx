@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
 import { assets } from "../assets/assets";
 import Tittle from "../components/Tittle";
@@ -61,12 +61,7 @@ const Collection = () => {
   useEffect(() => {
     setFilterProduct(products);
   }, []);
-  useEffect(() => {
-    // console.log(category);
-  }, [category]);
-  useEffect(() => {
-    // console.log(subCategory);
-  }, [subCategory]);
+  
   useEffect(() => {
     applyFiltter();
   }, [category, subCategory,search,showSearch,products]);
@@ -109,7 +104,7 @@ const Collection = () => {
               <input
                 type="checkbox"
                 className="w-3"
-                value={"Women"}
+                value={"Woman"}
                 onChange={toggleCategory}
               />
               Women
@@ -146,7 +141,7 @@ const Collection = () => {
               <input
                 type="checkbox"
                 className="w-3"
-                value={"Bottomwear"}
+                value={"Bottowear"}
                 onChange={toggleSubCategory}
               />
               Bottomwear
@@ -189,13 +184,17 @@ const Collection = () => {
                 img={item.image}
               />
             ))
-          ) : (
-            <div className="overflow-hidden w-[100vw] m-auto flex flex-wrap justify-center">
-              {arr.map((a) => (
-                <Simer />
-              ))}
-            </div>
-          )}
+          ) : " "
+          // (
+            // <div className="overflow-hidden m-auto">
+            //   {arr.map((a, index) => (
+            //     <div key={index} className=" flex flex-wrap items-centerjustify-center">
+            //       <Simer />
+            //     </div>
+            //   ))}
+            // </div>
+          // )
+          }
         </div>
       </div>
     </div>

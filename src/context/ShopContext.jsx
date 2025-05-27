@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 export const ShopContext = createContext();
 const ShopContextProvider = (props) => {
+  let userToken=localStorage.getItem("token")
   const currency = "₹";
   const delivery_fees = 10;
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
@@ -17,6 +18,10 @@ const ShopContextProvider = (props) => {
     if (!size) {
       toast.error("Select product size");
       return;
+    }
+    if(!userToken){
+      navigate("/login")
+      return
     }
     let cartData = structuredClone(cartItems);
     if (cartData[itemId]) {
@@ -93,17 +98,14 @@ const ShopContextProvider = (props) => {
 
     // Update the quantity in the local cart data
     if (quantity === 0) {
-      // If quantity is 0, delete the item locally
       delete cartData[itemId][size];
 
-      // If no sizes remain for this item, remove the item itself
       if (Object.keys(cartData[itemId]).length === 0) {
         delete cartData[itemId];
       }
 
-      setCartItems(cartData); // Update local state to reflect deletion
+      setCartItems(cartData);
 
-      // Send delete request to the backend
       if (token) {
         try {
           await axios.post(
@@ -111,19 +113,16 @@ const ShopContextProvider = (props) => {
             { itemId, size },
             { headers: { token } }
           );
-          // Optionally, display a success message
-          // toast("Item removed from cart");
+        
         } catch (error) {
           console.log(error);
           toast.error("Failed to delete item from cart on server");
         }
       }
     } else {
-      // For non-zero quantities, just update the cart locally
       cartData[itemId][size] = quantity;
       setCartItems(cartData);
 
-      // Send the updated quantity to the backend
       if (token) {
         try {
           await axios.post(
